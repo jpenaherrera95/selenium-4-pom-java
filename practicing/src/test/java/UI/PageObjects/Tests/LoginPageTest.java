@@ -1,5 +1,7 @@
-package UI.PageObjects;
+package UI.PageObjects.Tests;
 
+import UI.PageObjects.TestUtils;
+import com.fasterxml.jackson.databind.JsonNode;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -9,6 +11,7 @@ import org.testng.annotations.Test;
 import UI.PageObjects.Login.RealWordLoginPage;
 import org.testng.Assert;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class LoginPageTest {
@@ -29,11 +32,12 @@ public class LoginPageTest {
     }
 
     @Test(description = "Be able to login", priority = 0)
-    public void login(){
+    public void login() throws IOException {
+        JsonNode data = TestUtils.getTestData("./UI/data/loginData.json");
+        String username = data.path("users").path("username").textValue();
+        String password = data.path("users").path("password").textValue();
         objRealWordLoginPage = new RealWordLoginPage(driver);
-        objRealWordLoginPage.enterUsername("Katharina_Bernier");
-        objRealWordLoginPage.enterPassword("s3cret");
-        objRealWordLoginPage.clickLoginButton();
+        objRealWordLoginPage.loginOnPage(username,password);
     }
 
 
