@@ -1,10 +1,12 @@
+package UI.PageObjects;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pages.RealWordLoginPage;
+import UI.PageObjects.Login.RealWordLoginPage;
 import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
