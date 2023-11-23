@@ -15,6 +15,7 @@
         <selenium.version>4.15.0</selenium.version>
         <testng.version>7.7.0</testng.version>
         <webdrivermanager.version>5.1.0</webdrivermanager.version>
+        <restAssured.version>4.4.0</restAssured.version>
     </properties>
     <dependencies>
         <!-- TestNG Dependency -->
@@ -22,6 +23,7 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
+            <scope>test</scope>
         </dependency>
         <!-- WebDriverManager Dependency -->
         <dependency>
@@ -40,6 +42,19 @@
             <groupId>com.titusfortner</groupId>
             <artifactId>selenium-logger</artifactId>
             <version>2.4.0</version>
+        </dependency>
+        <!-- Rest Assured -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.3.2</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Rest Assured schema validator -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>5.3.2</version>
         </dependency>
     </dependencies>
 

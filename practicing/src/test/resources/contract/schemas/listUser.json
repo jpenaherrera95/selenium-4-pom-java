@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "List Users",
+  "type": "object",
+  "items": {
+    "page": {
+      "type": "number"
+    },
+    "per_page": {
+      "type": "number"
+    },
+    "total": {
+      "type": "number"
+    },
+    "total_pages": {
+      "type": "number"
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "The unique identifier for a product",
+            "type": "number"
+          },
+          "email": {
+            "description": "The unique identifier for a product",
+            "type": "string"
+          },
+          "first_name": {
+            "description": "The unique identifier for a product",
+            "type": "string"
+          },
+          "last_name": {
+            "description": "The unique identifier for a product",
+            "type": "string"
+          },
+          "avatar": {
+            "description": "The unique identifier for a product",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "support": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "description": "The unique identifier for a product",
+          "type": "string"
+        },
+        "text": {
+          "description": "The unique identifier for a product",
+          "type": "string"
+        }
+      }
+    },
+    "required": ["page", "per_page", "total"]
+  }
+}
