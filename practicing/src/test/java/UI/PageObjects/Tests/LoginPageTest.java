@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import UI.PageObjects.Login.RealWordLoginPage;
 import org.testng.Assert;
@@ -18,15 +19,16 @@ public class LoginPageTest {
     WebDriver driver;
     RealWordLoginPage objRealWordLoginPage;
     String titleName = "Cypress Real World App";
+    @Parameters("baseUrl")
     @BeforeTest
-    public void setUp(){
+    public void setUp(String baseUrl){
         WebDriverManager.firefoxdriver().setup();
         FirefoxOptions options = new FirefoxOptions();
         //ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         driver = new FirefoxDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("http://localhost:3000/signin");
+        driver.get(baseUrl);
         String webTitle = driver.getTitle();
         Assert.assertEquals(webTitle,titleName);
     }
